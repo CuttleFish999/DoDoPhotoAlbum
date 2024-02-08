@@ -1,24 +1,51 @@
 package photoalbum.dodospringboot.model;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
+@Table(name = "product")
 public class Product {
-    private Integer product_Id;
-    private String productName;
-    private String category;
-    private String image_url;
-    private Integer price;
-    private Integer stock;
-    private String description;
-    private Date created_date;
-    private Date last_modified_date;
 
-    public Integer getProduct_Id() {
-        return product_Id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
+    private Integer productId;
+
+    @Column(name = "product_name")
+    private String productName;
+
+    @Column(name = "category")
+    private String category;
+
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    @Column(name = "price")
+    private Integer price;
+
+    @Column(name = "stock")
+    private Integer stock;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "created_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
+
+    @Column(name = "last_modified_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastModifiedDate;
+
+
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setProduct_Id(Integer product_Id) {
-        this.product_Id = product_Id;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 
     public String getProductName() {
@@ -37,12 +64,12 @@ public class Product {
         this.category = category;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Integer getPrice() {
@@ -69,34 +96,20 @@ public class Product {
         this.description = description;
     }
 
-    public Date getCreated_date() {
-        return created_date;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreated_date(Date created_date) {
-        this.created_date = created_date;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public Date getLast_modified_date() {
-        return last_modified_date;
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
     }
 
-    public void setLast_modified_date(Date last_modified_date) {
-        this.last_modified_date = last_modified_date;
+    public void setLastModifiedDate(Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "product_Id=" + product_Id +
-                ", productName='" + productName + '\'' +
-                ", category='" + category + '\'' +
-                ", image_url='" + image_url + '\'' +
-                ", price=" + price +
-                ", stock=" + stock +
-                ", description='" + description + '\'' +
-                ", created_date=" + created_date +
-                ", last_modified_date=" + last_modified_date +
-                '}';
-    }
 }
