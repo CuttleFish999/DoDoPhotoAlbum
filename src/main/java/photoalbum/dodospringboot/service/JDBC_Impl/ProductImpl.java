@@ -13,6 +13,6 @@ public class ProductImpl implements ProductService {
     private ProductDao productDao;
     @Override
     public Product getProductById(Integer productId) {
-        return null;
+        return productDao.getProductById(productId);
     }
 }
