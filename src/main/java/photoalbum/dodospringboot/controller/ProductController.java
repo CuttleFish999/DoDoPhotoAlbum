@@ -15,10 +15,10 @@ public class ProductController {
     private ProductRepository productRepository;
 
     //  SpringJPA
-    @PostMapping("/insertProducts")
-    public String insertProduct(@RequestBody Product product){
+    @PostMapping("/InsertProducts")
+    public Integer insertProduct(@RequestBody Product product){
 
         productRepository.save(product);
-        return "Create Products";
+        return product.getProid();
     }
 }

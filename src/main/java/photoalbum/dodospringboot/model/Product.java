@@ -10,37 +10,68 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "productId")
-    private Integer productId;
+    @Column(name = "proId")
+    private Integer proid;
+    private String proname;
+    private String procategory;
+    private byte[] proimage;
+    private Integer proprice;
+    private Integer prostock;
+    private String prodescription;
 
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "category")
-    private String category;
-
-
-    public Integer getProductId() {
-        return productId;
+    public Integer getProid() {
+        return proid;
     }
 
-    public void setProductId(Integer productId) {
-        this.productId = productId;
+    public void setProid(Integer proid) {
+        this.proid = proid;
     }
 
-    public String getName() {
-        return name;
+    public String getProname() {
+        return proname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProname(String proname) {
+        this.proname = proname;
     }
 
-    public String getCategory() {
-        return category;
+    public String getProcategory() {
+        return procategory;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setProcategory(String procategory) {
+        this.procategory = procategory;
+    }
+
+    public byte[] getProimage() {
+        return proimage;
+    }
+
+    public void setProimage(byte[] proimage) {
+        this.proimage = proimage;
+    }
+
+    public Integer getProprice() {
+        return proprice;
+    }
+
+    public void setProprice(Integer proprice) {
+        this.proprice = proprice;
+    }
+
+    public Integer getProstock() {
+        return prostock;
+    }
+
+    public void setProstock(Integer prostock) {
+        this.prostock = prostock;
+    }
+
+    public String getProdescription() {
+        return prodescription;
+    }
+
+    public void setProdescription(String prodescription) {
+        this.prodescription = prodescription;
     }
 }
