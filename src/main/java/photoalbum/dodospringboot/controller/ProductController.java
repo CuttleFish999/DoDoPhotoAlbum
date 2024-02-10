@@ -2,31 +2,23 @@ package photoalbum.dodospringboot.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import photoalbum.dodospringboot.dao.SpringJPA_Impl.ProductRepository;
 import photoalbum.dodospringboot.model.Product;
-import photoalbum.dodospringboot.service.ProductService;
 
 @RestController
 public class ProductController {
 
     @Autowired
-    private ProductService productService;
+    private ProductRepository productRepository;
 
-    @GetMapping("/products/{productId}")
-    public ResponseEntity<Product> getProduct(@PathVariable Integer productId){
-        System.out.println("productId-Controller: " + productId);
-        Product product = productService.getProductById(productId);
+    //  SpringJPA
+    @PostMapping("/insertProducts")
+    public String insertProduct(@RequestBody Product product){
 
-
-        if(product != null){
-            return ResponseEntity.status(HttpStatus.OK).body(product);
-        }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+        productRepository.save(product);
+        return "Create Products";
     }
 }
