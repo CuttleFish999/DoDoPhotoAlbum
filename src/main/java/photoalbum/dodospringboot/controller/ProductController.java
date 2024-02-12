@@ -31,10 +31,11 @@ public class ProductController {
     }
     @GetMapping("/GetProducts")
     public String insertProduct(Model model){
-//        List<Product> productList = new ArrayList<>();
-//        productRepository.findAll().forEach(productList::add);
-//        model.addAttribute("product" , productList);
+        List<Product> productList = new ArrayList<>();
+        productRepository.findAll().forEach(productList::add);
+        model.addAttribute("products" , productList);
 
+        System.out.println(productList.get(0).getProid());
         return "index";
     }
 }

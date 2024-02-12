@@ -10,13 +10,19 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "proId")
+    @Column(name = "proid")
     private Integer proid;
+    @Column(name = "proname")
     private String proname;
+    @Column(name = "procategory")
     private String procategory;
+    @Column(name = "proimage")
     private byte[] proimage;
+    @Column(name = "proprice")
     private Integer proprice;
+    @Column(name = "prostock")
     private Integer prostock;
+    @Column(name = "prodescription")
     private String prodescription;
 
     public Integer getProid() {
